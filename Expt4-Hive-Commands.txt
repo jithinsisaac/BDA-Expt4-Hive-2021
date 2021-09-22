@@ -4,7 +4,7 @@ FOR LABORATORY:
 ### jithin isaac ###
 ### hadoop in real world demo ### 
 
-### Load Stocks dataset inside HDP's /user/raj_ops folder first first ###
+### Load Stocks dataset inside HDP's /user/maria_dev folder first first ###
 
 ** Drag & drop stocks_for_lab file from local system to server via FTP on Mobaxterm **
 
