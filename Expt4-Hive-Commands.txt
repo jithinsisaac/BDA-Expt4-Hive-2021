@@ -6,13 +6,13 @@ FOR LABORATORY:
 
 ### Load Stocks dataset inside HDP's /user/raj_ops folder first first ###
 
-Drag & drop stocks_for_lab file from local system to server via FTP on Mobaxterm
+** Drag & drop stocks_for_lab file from local system to server via FTP on Mobaxterm **
 
-Make HDFS folder to save this file:  
+** Make HDFS folder to save this file: ** 
 hadoop fs -mkdir /user/maria_dev/hive
 hadoop fs -mkdir /user/maria_dev/hive/stocks_for_lab
 
-Copy data file from local FS to this folder in HDFS: hadoop fs -copyFromLocal /root/stocks_for_lab /user/maria_dev/hive/stocks_for_lab
+**Copy data file from local FS to this folder in HDFS:** hadoop fs -copyFromLocal /root/stocks_for_lab /user/maria_dev/hive/stocks_for_lab
 
 ### Now,
 Open hive by typing 'hive' in terminal ###
