@@ -33,10 +33,12 @@ Additional help via https://www.cloudera.com/tutorials/getting-started-with-hdp-
 ### Final list of Deliverables for Expt 4  
 
 Queries related to
+  - Copying data from Local FS to HDFS
+  - Hive Shell
   - Creating Database
   - Creating Table
-  - Loading Table 
-  - Select queries on the table
+  - Loading data into Table 
+  - Select queries on the table (any 5 - min, max, count,avg, describe, select-and-or)
 
 ### Procedure 
 - **ADD THE PROCEDURE THAT YOU FOLLOWED FOR COMPLETING THE EXPERIMENT HERE**
