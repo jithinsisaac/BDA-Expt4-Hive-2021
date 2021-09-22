@@ -28,6 +28,8 @@ Additional help via https://www.cloudera.com/tutorials/getting-started-with-hdp-
 
 3. Perform certain DML operations on the data stored in the HDFS
 
+4. More HQL commands at https://docs.cloudera.com/documentation/enterprise/5-8-x/PDF/cloudera-hive.pdf & https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf
+
 ### Final list of Deliverables for Expt 4  
 
 Queries related to
