@@ -2,11 +2,11 @@
 FOR LABORATORY:
 //*******************************
 ### jithin isaac ###
-### hadoop in real world demo ### 
+### hadoop in real world demo done on HDP on AWS Server ### 
 
 ### Load Stocks dataset inside HDP's /user/maria_dev folder first first ###
 
-** Drag & drop stocks_for_lab file from local system to server via FTP on Mobaxterm **
+** Drag & drop stocks_for_lab file from local windows/linus OS system to /root/ folder in server via FTP on Mobaxterm **
 
 ** Make HDFS folder to save this file: ** 
 hadoop fs -mkdir /user/maria_dev/hive
@@ -70,26 +70,44 @@ hive> SELECT symbol, max(price_close) max_close FROM stocks_table GROUP BY symbo
 
 ### DESCRIBE TO GET MORE INFORMATION ABOUT TABLE ###
 hive> DESCRIBE FORMATTED stocks_table;
-
-	Response-->
 	OK
-	# col_name            	data_type           	comment             	 	 
-	exch                	string              	                    
-	symbol              	string              	                    
-	ymd                 	string              	                    
-	price_open          	float               	                    
-	price_high          	float               	                    
-	price_low           	float               	                    
-	price_close         	float               	                    
-	volume              	int                 	                    
-	price_adj_close     	float               	                    
-		 	 
-	# Detailed Table Information	 	 
-	Database:           	default             	 
-	Owner:              	jithinisaac         	 
-	CreateTime:         	Wed Sep 11 09:27:02 IST 2019	 
-	LastAccessTime:     	UNKNOWN             	 
-	Protect Mode:       	None                	 
-	Retention:          	0                   	 
-	Location:           	hdfs://localhost:9000/user/hirw/input/stocks	 
-	Table Type:         	EXTERNAL_TABLE      	
+	# col_name              data_type               comment
+
+	exch                    string
+	symbol                  string
+	ymd                     string
+	price_open              float
+	price_high              float
+	price_low               float
+	price_close             float
+	volume                  int
+	price_adj_close         float
+
+	# Detailed Table Information
+	Database:               hiveb
+	Owner:                  root
+	CreateTime:             Wed Sep 22 09:21:26 UTC 2021
+	LastAccessTime:         UNKNOWN
+	Protect Mode:           None
+	Retention:              0
+	Location:               hdfs://sandbox-hdp.hortonworks.com:8020/user/maria_dev/hive_batchb/stocks_for_lab
+	Table Type:             EXTERNAL_TABLE
+	Table Parameters:
+		EXTERNAL                TRUE
+		numFiles                1
+		totalSize               5374
+		transient_lastDdlTime   1632302486
+
+	# Storage Information
+	SerDe Library:          org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe
+	InputFormat:            org.apache.hadoop.mapred.TextInputFormat
+	OutputFormat:           org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat
+	Compressed:             No
+	Num Buckets:            -1
+	Bucket Columns:         []
+	Sort Columns:           []
+	Storage Desc Params:
+		field.delim             ,
+		serialization.format    ,
+	Time taken: 0.47 seconds, Fetched: 38 row(s)
+
