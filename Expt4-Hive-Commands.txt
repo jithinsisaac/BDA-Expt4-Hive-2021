@@ -2,21 +2,17 @@
 FOR LABORATORY:
 //*******************************
 ### jithin isaac ###
-### hadoop in real world demo ###
+### hadoop in real world demo ### 
 
-### START HADOOP & MAKE DIRECTORIES IN HDFS ###
-/usr/local/hadoop/bin/hadoop namenode -format
-cd /usr/local/hadoop/sbin/
-./start-all.sh
-jps
+### Load Stocks dataset inside HDP's /user/raj_ops folder first first ###
 
-### Load Stocks dataset inside folder /user/hirw/input/stocks_for_lab/ folder first first ###
-hadoop fs -mkdir /user/
-hadoop fs -mkdir /user/hirw/
-hadoop fs -mkdir /user/hirw/input/
-hadoop fs -mkdir /user/hirw/input/stocks_for_lab/
+Drag & drop stocks_for_lab file from local system to server via FTP on Mobaxterm
 
-hadoop fs -copyFromLocal /home/jithinisaac/Desktop/stocks_for_lab /user/hirw/input/stocks_for_lab/
+Make HDFS folder to save this file:  
+hadoop fs -mkdir /user/maria_dev/hive
+hadoop fs -mkdir /user/maria_dev/hive/stocks_for_lab
+
+Copy data file from local FS to this folder in HDFS: hadoop fs -copyFromLocal /root/stocks_for_lab /user/maria_dev/hive/stocks_for_lab
 
 ### Now,
 Open hive by typing 'hive' in terminal ###
@@ -48,7 +44,7 @@ price_close FLOAT,
 volume INT,
 price_adj_close FLOAT)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION '/user/hirw/input/stocks_for_lab';
+LOCATION '/user/maria_dev/hive/stocks_for_lab';
 
 ### SELECT ALL RECORDS ###
 hive> SELECT * FROM stocks_table;
