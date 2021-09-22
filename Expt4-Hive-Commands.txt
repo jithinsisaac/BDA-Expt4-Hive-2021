@@ -1,0 +1,99 @@
+//*******************************
+FOR LABORATORY:
+//*******************************
+### jithin isaac ###
+### hadoop in real world demo ###
+
+### START HADOOP & MAKE DIRECTORIES IN HDFS ###
+/usr/local/hadoop/bin/hadoop namenode -format
+cd /usr/local/hadoop/sbin/
+./start-all.sh
+jps
+
+### Load Stocks dataset inside folder /user/hirw/input/stocks_for_lab/ folder first first ###
+hadoop fs -mkdir /user/
+hadoop fs -mkdir /user/hirw/
+hadoop fs -mkdir /user/hirw/input/
+hadoop fs -mkdir /user/hirw/input/stocks_for_lab/
+
+hadoop fs -copyFromLocal /home/jithinisaac/Desktop/stocks_for_lab /user/hirw/input/stocks_for_lab/
+
+### Now,
+Open hive by typing 'hive' in terminal ###
+
+### SHOW DATABASES ###
+hive> SHOW DATABASES;
+
+### CREATE DATABASE ###
+hive> CREATE DATABASE db_name; 
+
+### USE DATABASE ###
+hive> USE db_name;
+
+### DROP DATABASE ###
+hive> DROP DATABASE db_name; ;
+
+### SHOW TABLES ###
+hive> SHOW TABLES;
+
+### CREATE EXTERNAL TABLE ###
+hive> CREATE EXTERNAL TABLE IF NOT EXISTS stocks_table (
+exch STRING,
+symbol STRING,
+ymd STRING,
+price_open FLOAT,
+price_high FLOAT,
+price_low FLOAT,
+price_close FLOAT,
+volume INT,
+price_adj_close FLOAT)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LOCATION '/user/hirw/input/stocks_for_lab';
+
+### SELECT ALL RECORDS ###
+hive> SELECT * FROM stocks_table;
+
+### SELECT 10 RECORDS ###
+hive> SELECT * FROM stocks_table LIMIT 10;
+
+### SELECT SPECIFIC RECORDS ###
+hive> SELECT * FROM stocks_table WHERE symbol='BRL';
+
+### SELECT MULTIPLE CRITERIA RECORDS ###
+hive> SELECT * FROM stocks_table WHERE symbol='BRL' AND price_open=15.92;
+
+
+### SELECT UNIQUE CRITERIA RECORDS ###
+hive> SELECT DISTINCT symbol FROM stocks_table;
+
+### COUNTING ROWS ###
+hive> SELECT COUNT(*) FROM stocks_table;
+
+### CALCULATE MAX CLOSING PRICE ###
+hive> SELECT symbol, max(price_close) max_close FROM stocks_table GROUP BY symbol;
+
+### DESCRIBE TO GET MORE INFORMATION ABOUT TABLE ###
+hive> DESCRIBE FORMATTED stocks_table;
+
+	Response-->
+	OK
+	# col_name            	data_type           	comment             	 	 
+	exch                	string              	                    
+	symbol              	string              	                    
+	ymd                 	string              	                    
+	price_open          	float               	                    
+	price_high          	float               	                    
+	price_low           	float               	                    
+	price_close         	float               	                    
+	volume              	int                 	                    
+	price_adj_close     	float               	                    
+		 	 
+	# Detailed Table Information	 	 
+	Database:           	default             	 
+	Owner:              	jithinisaac         	 
+	CreateTime:         	Wed Sep 11 09:27:02 IST 2019	 
+	LastAccessTime:     	UNKNOWN             	 
+	Protect Mode:       	None                	 
+	Retention:          	0                   	 
+	Location:           	hdfs://localhost:9000/user/hirw/input/stocks	 
+	Table Type:         	EXTERNAL_TABLE      	
