@@ -21,7 +21,7 @@ To learn and explore Apache Hive, the data warehouse infrastructure tool to proc
   
 ### Instructions
 
-1. Install HDP via https://jithinsisaac.github.io/posts/hdp_sandbox/
+1. Install HDP via https://jithinsisaac.github.io/posts/hdp_sandbox/  
 Additional help via https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox.html
 
 2. Access the Hive client in HDP and perform DDL operations to generate data, which is stored in the HDFS 
